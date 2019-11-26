@@ -32,17 +32,8 @@ List<List<int>> permuate(List<int> inputList){
   }
   return permutations;
  }
-
- List swap(List list){
-   int temp = list[0];
-   int temp2 = list[1];
-   list[0] = temp2;
-   list[1] = temp;
-   return list;
- }
-
 main() {
   print(permuate([1,2,3,4]).length);
   print("................");
-  print([1,2,3,4]);
+  print(permuate([1,2,3,4]));
 }
