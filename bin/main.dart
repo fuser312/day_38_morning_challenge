@@ -12,5 +12,37 @@
 //    [3,2,1]
 //  ]
 
+List<List<int>> permuate(List<int> inputList){
+
+  List <List<int>>permutations = [];
+  if(inputList.length ==1){
+  permutations.add(inputList);
+  return permutations;
+  }
+  
+  for(int i = 0; i< inputList.length; i++){
+    List <int> tempList = List.from(inputList);
+    tempList.removeAt(i);
+    List <List<int>> otherPermutation = permuate(tempList);
+    for (List <int> list in otherPermutation){
+      list.insert(0, inputList[i]);
+      permutations.add(list);
+    }
+    
+  }
+  return permutations;
+ }
+
+ List swap(List list){
+   int temp = list[0];
+   int temp2 = list[1];
+   list[0] = temp2;
+   list[1] = temp;
+   return list;
+ }
+
 main() {
+  print(permuate([1,2,3,4]).length);
+  print("................");
+  print([1,2,3,4]);
 }
